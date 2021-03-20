@@ -1,12 +1,12 @@
 import cv2
 from toad import ToadGenerator
 from utils.utils import get_hand_prediction, draw_boxes, non_max_suppression_fast
-
+from config.config import CAMERA
 
 def toad_game_custom():
     x1 = x2 = y1 = y2 = 0
 
-    cap = cv2.VideoCapture("http://192.168.0.198:8080/video")
+    cap = cv2.VideoCapture(CAMERA)
     td = ToadGenerator()
     i = 0
     boxes = []

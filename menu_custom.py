@@ -9,7 +9,7 @@ class App():
         self.root.geometry('600x400')
         self.root.title('Toad collection')
 
-        img = ImageTk.PhotoImage(Image.open('/home/alena/Downloads/2fbef6cbc36d79fd310d83cb2a897bc4.jpg'))
+        img = ImageTk.PhotoImage(Image.open('./media/main_toad.jpg'))
         panel = Label(self.root, image=img)
         panel.pack(side="bottom", fill="both", expand="yes")
 

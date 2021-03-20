@@ -1,11 +1,12 @@
 from toad import ToadGenerator
 import mediapipe as mp
 import cv2
+from config.config import CAMERA
 
 
 def toad_game_mediapipe():
     x1 = x2 = y1 = y2 = 0
-    cap = cv2.VideoCapture("http://192.168.0.198:8080/video")
+    cap = cv2.VideoCapture(CAMERA)
     td = ToadGenerator()
 
     mp_hands = mp.solutions.hands
@@ -30,6 +31,7 @@ def toad_game_mediapipe():
                 y1 = int(hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP].y * image_height)
                 y2 = int(hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].y * image_height)
                 image = cv2.rectangle(image, (x1, y1), (x2, y2), (255, 0, 0), 2)
+                break
 
         xx1 = min(x1, x2)
         xx2 = max(x1, x2)
